@@ -28,7 +28,7 @@ spec:
     spec:
       nodeName: ""   
       containers:
-      - image: pnordstrom/lke-vlan-joiner:1.2
+      - image: pnordstrom/lke-vlan-joiner:1.3
         imagePullPolicy: IfNotPresent
         stdin: true
         tty: true
