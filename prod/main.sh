@@ -46,7 +46,7 @@ generate_ip () {
   ip_exclude_list=${ip_exclude_list%,}
 
   # create a list of available IPs from the VLAN CIDR not in use
-  readarray -t unreserved_vlan_ips < <(nmap -sL -n --exclude $ip_exclude_list $cidr_block | awk '/Nmap scan report/{print $NF}')
+  readarray -t unreserved_vlan_ips < <(nmap -sL -n --exclude "$ip_exclude_list" $cidr_block | awk '/Nmap scan report/{print $NF}')
 
   # return a random IP from the available IPs
   echo "${unreserved_vlan_ips[ $RANDOM % ${#unreserved_vlan_ips[@]} ]}/$cidr_network_identifier"
